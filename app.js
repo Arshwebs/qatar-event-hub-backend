@@ -1,7 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
-const AppError = require('./utils/appError');
-const globalErrorHandler = require('./controllers/errorController');
+const AppError = require('./src/utils/appError');
+const globalErrorHandler = require('./src/controllers/errorController');
+const bookingRouter = require('./src/routes/bookingRouter');
 
 const app = express();
 app.use(express.json());
@@ -16,6 +17,8 @@ app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
   next();
 });
+
+app.use('/api/v1/', bookingRouter);
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));

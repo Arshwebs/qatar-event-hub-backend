@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
 process.on('uncaughtException', err => {
@@ -6,8 +8,19 @@ process.on('uncaughtException', err => {
   process.exit(1);
 });
 
-dotenv.config({ path: './config.env' });
+dotenv.config({ path: './src/config/config.env' });
 const app = require('./app');
+
+// MongoDB cluster
+// const DB = process.env.DATABASE_PROD.replace(
+//   '<PASSWORD>',
+//   process.env.DATABASE_PASSWORD
+// );
+
+//Local MonogoDB
+const DB = process.env.DATABASE_LOCAL;
+
+mongoose.connect(DB).then(() => console.log('DB connection successful!'));
 
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
