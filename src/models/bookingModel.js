@@ -1,5 +1,5 @@
 // models/Booking.js
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const BookingSchema = new mongoose.Schema(
   {
@@ -7,42 +7,42 @@ const BookingSchema = new mongoose.Schema(
       // type: mongoose.Schema.Types.ObjectId,
       type: String,
       // ref: 'User',
-      required: true
+      required: true,
     },
     venue: {
       type: String,
-      required: true
+      required: true,
     },
     photography: {
       type: String,
-      required: true
+      required: true,
     },
     decoration: {
       type: String,
-      required: true
+      required: true,
     },
     catering: {
       type: String,
-      required: true
+      required: true,
     },
     organizingTeam: {
       type: String,
-      required: true
+      required: true,
     },
     date: {
       type: Date,
-      required: true
+      required: true,
     },
     status: {
       type: String,
-      enum: ['booked', 'cancelled'],
-      default: 'booked'
-    }
+      enum: ["booked", "cancelled"],
+      default: "booked",
+    },
   },
   {
     timestamps: true,
-    versionKey: false
-  }
+    versionKey: false,
+  },
 );
 
-module.exports = mongoose.model('Booking', BookingSchema);
+module.exports = mongoose.model("Booking", BookingSchema);

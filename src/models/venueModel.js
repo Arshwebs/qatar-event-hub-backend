@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
@@ -6,40 +6,40 @@ const venueSchema = new Schema(
   {
     name: {
       type: String,
-      required: true
+      required: true,
     },
     location: {
       type: String,
-      required: true
+      required: true,
     },
     capacity: {
       type: Number,
-      required: true
+      required: true,
     },
     description: {
       type: String,
-      required: true
+      required: true,
     },
     images: [
       {
-        type: String
-      }
+        type: String,
+      },
     ],
     price: {
       type: Number,
-      required: true
+      required: true,
     },
     availableDates: [
       {
-        type: Date
-      }
-    ]
+        type: Date,
+      },
+    ],
   },
   {
-    timestamps: true
-  }
+    timestamps: true,
+  },
 );
 
-const Venue = mongoose.model('Venue', venueSchema);
+const Venue = mongoose.model("Venue", venueSchema);
 
 module.exports = Venue;

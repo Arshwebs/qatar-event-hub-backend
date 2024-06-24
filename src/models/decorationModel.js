@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
@@ -6,32 +6,32 @@ const decorationSchema = new Schema(
   {
     theme: {
       type: String,
-      required: true
+      required: true,
     },
     description: {
       type: String,
-      required: true
+      required: true,
     },
     priceRange: {
       type: String,
-      required: true
+      required: true,
     },
     images: [
       {
-        type: String
-      }
+        type: String,
+      },
     ],
     availableDates: [
       {
-        type: Date
-      }
-    ]
+        type: Date,
+      },
+    ],
   },
   {
-    timestamps: true
-  }
+    timestamps: true,
+  },
 );
 
-const Decoration = mongoose.model('Decoration', decorationSchema);
+const Decoration = mongoose.model("Decoration", decorationSchema);
 
 module.exports = Decoration;

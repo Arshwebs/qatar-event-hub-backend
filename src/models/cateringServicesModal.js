@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
@@ -6,39 +6,36 @@ const cateringServiceSchema = new Schema(
   {
     name: {
       type: String,
-      required: true
+      required: true,
     },
     description: {
       type: String,
-      required: true
+      required: true,
     },
     menuOptions: [
       {
-        type: String
-      }
+        type: String,
+      },
     ],
     priceRange: {
       type: String,
-      required: true
+      required: true,
     },
     contactInfo: {
       type: String,
-      required: true
+      required: true,
     },
     availableDates: [
       {
-        type: Date
-      }
-    ]
+        type: Date,
+      },
+    ],
   },
   {
-    timestamps: true
-  }
+    timestamps: true,
+  },
 );
 
-const CateringService = mongoose.model(
-  'CateringService',
-  cateringServiceSchema
-);
+const CateringService = mongoose.model("CateringService", cateringServiceSchema);
 
 module.exports = CateringService;
